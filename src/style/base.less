@@ -1,0 +1,347 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+@import "./variable.less";
+
+/*!
+ * @名称：base.css
+ * @功能：1、重设浏览器默认样式
+ *       2、设置通用原子类
+ */
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+    background: white;
+    color: black;
+    font-size: 10px;
+    font-family: "Roboto" !important;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 16px !important;
+}
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Roboto";
+}
+
+input,
+select,
+textarea {
+    font-size: 100%;
+}
+
+/* 去掉 table cell 的边距并让其边重合 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ie bug：th 不继承 text-align */
+th {
+    text-align: inherit;
+}
+
+/* 去除默认边框 */
+fieldset,
+img {
+    border: none;
+}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+    display: block;
+}
+
+/* 去掉 firefox 下此元素的边框 */
+abbr,
+acronym {
+    border: none;
+    font-variant: normal;
+}
+
+/* 一致的 del 样式 */
+del {
+    text-decoration: line-through;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* 去掉列表前的标识，li 会继承 */
+ol,
+ul {
+    list-style: none;
+}
+
+/* 对齐是排版最重要的因素，别让什么都居中 */
+caption,
+th {
+    text-align: left;
+}
+
+/* 来自yahoo，让标题都自定义，适应多个系统应用 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.6rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+q:before,
+q:after {
+    content: "";
+}
+
+/* 统一上标和下标 */
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+// /* 让链接在 hover 状态下显示下划线 */
+// a:hover {
+//     text-decoration: underline;
+// }
+
+/* 默认不显示下划线，保持页面简洁 */
+ins,
+a {
+    text-decoration: none;
+}
+
+/* 去除 ie6 & ie7 焦点点状线 */
+a:focus,
+*:focus {
+    outline: none;
+}
+
+/* 清除浮动 */
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: block;
+}
+
+.clearfix:after {
+    clear: both;
+    overflow: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+    /* for ie6 & ie7 */
+}
+
+.clear {
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+/* 设置显示和隐藏，通常用来与 js 配合 */
+.hide {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+/* 设置浮动，减少浮动带来的 bug */
+.fl,
+.fr {
+    display: inline;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.mr15 {
+    margin-right: 15px;
+}
+.bar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ant-btn-primary {
+    border: 1px solid var(--color-btn-primary) !important;
+    background-color: var(--color-btn-primary) !important;
+    border-radius: 2px;
+    &:hover {
+        border: 1px solid var(--primary-5) !important;
+        background-color: var(--primary-5) !important;
+    }
+    &:active {
+        border: 1px solid var(--primary-7) !important;
+        background-color: var(--primary-7) !important;
+    }
+    .disabled {
+        border: 1px solid var(--color-btn-secondary-stroke) !important;
+        background-color: var(--color-btn-disabledbg) !important;
+        color: var(--color-text-disable) !important;
+    }
+}
+
+.ant-btn-secondary {
+    border-radius: 2px;
+    border: 1px solid var(--color-btn-secondary-stroke) !important;
+    color: var(--color-text-title) !important;
+    &:hover {
+        border: 1px solid var(--primary-5) !important;
+        background: var(--color-bg-light) !important;
+        color: var(--primary-5) !important;
+    }
+    &.disabled {
+        border: 1px solid var(--color-btn-secondary-stroke) !important;
+        background-color: var(--color-btn-disabledbg) !important;
+        color: var(--color-text-disable) !important;
+    }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+.ant-input:focus,
+.ant-input-focused {
+    box-shadow: none;
+}
+.ant-input {
+    border-radius: 2px;
+    border-color: var(-color-btn-secondary-stroke) !important;
+    background: var(--color-bg-light);
+    color: var(--color-text-title);
+    &:hover {
+        border-color: var(--color-btn-hover) !important;
+    }
+}
+
+.ant-select-single .ant-select-selector {
+    border-radius: 2px !important;
+}
+
+.ant-input-affix-wrapper {
+    border-radius: 2px !important;
+}
+.ant-switch-inner {
+    background-color: var(--color-text-disable);
+}
+.ant-input-group-addon {
+    background-color: transparent !important;
+    button {
+        background-color: transparent !important;
+    }
+}
+.ant-menu-item {
+    margin: 10px auto 0 !important;
+    width: calc(100% - 48px) !important;
+    height: 52px !important;
+    // &:hover {
+    //     background-color: #e6f7ff !important;
+    //     a {
+    //         color: #fff !important;
+    //     }
+    // }
+}
+.ant-menu-item-selected {
+    background: #0a2fef !important;
+    border-radius: 10px;
+    a {
+        color: #fff !important;
+    }
+}
+.ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after,
+.ant-menu-inline .ant-menu-item::after {
+    border-right: none !important;
+}
